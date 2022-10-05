@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func createSearchNC() -> UINavigationController {
         let searchVC = SearchVC()
-        searchVC.title = "Search"
+        searchVC.title = "Поиск"
         
         //tag - index of VC in array of VCs in tapbar
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func createFavoritesNC() -> UINavigationController {
         let favoritesVC = FavoritesListVC()
         
-        favoritesVC.title = "Favorites"
+        favoritesVC.title = "Закладки"
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         return UINavigationController(rootViewController: favoritesVC)
