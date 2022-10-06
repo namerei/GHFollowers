@@ -69,22 +69,54 @@
 		FA8E7EEE28ED453000313D02 /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				FA8E7EEF28ED453000313D02 /* AppDelegate.swift */,
-				FA8E7EF128ED453000313D02 /* SceneDelegate.swift */,
-				FA8E7F0728EDDD7400313D02 /* GFButton.swift */,
-				FA8E7F0928EDF4F700313D02 /* GFTextField.swift */,
-				FA8E7EF828ED453200313D02 /* Assets.xcassets */,
-				FA8E7EFD28ED453200313D02 /* Info.plist */,
+				FA8E7F1928EF1D2300313D02 /* Supprort */,
+				FA8E7F1828EF1CBA00313D02 /* Extensions */,
+				FA8E7F1728EF1C6A00313D02 /* CustomViews */,
+				FA8E7F1628EF1C1A00313D02 /* Screens */,
+			);
+			path = GHFollowers;
+			sourceTree = "<group>";
+		};
+		FA8E7F1628EF1C1A00313D02 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
 				FA8E7F0328ED972800313D02 /* SearchVC.swift */,
-				FA8E7F0E28EEECE800313D02 /* GFTitleLabel.swift */,
-				FA8E7F1028EEF4C400313D02 /* GFBodyLabel.swift */,
-				FA8E7F1228EEF7FD00313D02 /* GFAlertVC.swift */,
-				FA8E7F1428EF129400313D02 /* UIViewController+Ext .swift */,
-				FA8E7F0D28EEC6F200313D02 /* About.md */,
 				FA8E7F0B28EEC43900313D02 /* FollowersListVC.swift */,
 				FA8E7F0528ED976D00313D02 /* FavoritesListVC.swift */,
 			);
-			path = GHFollowers;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FA8E7F1728EF1C6A00313D02 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E7F0728EDDD7400313D02 /* GFButton.swift */,
+				FA8E7F0928EDF4F700313D02 /* GFTextField.swift */,
+				FA8E7F0E28EEECE800313D02 /* GFTitleLabel.swift */,
+				FA8E7F1028EEF4C400313D02 /* GFBodyLabel.swift */,
+				FA8E7F1228EEF7FD00313D02 /* GFAlertVC.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FA8E7F1828EF1CBA00313D02 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E7F1428EF129400313D02 /* UIViewController+Ext .swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA8E7F1928EF1D2300313D02 /* Supprort */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E7EEF28ED453000313D02 /* AppDelegate.swift */,
+				FA8E7EF128ED453000313D02 /* SceneDelegate.swift */,
+				FA8E7EF828ED453200313D02 /* Assets.xcassets */,
+				FA8E7EFD28ED453200313D02 /* Info.plist */,
+				FA8E7F0D28EEC6F200313D02 /* About.md */,
+			);
+			path = Supprort;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
