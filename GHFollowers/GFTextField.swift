@@ -21,20 +21,20 @@ class GFTextField: UITextField {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius = 10
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.systemGray4.cgColor //cgColor for core graphics
+        layer.cornerRadius          = 10
+        layer.borderWidth           = 2
+        layer.borderColor           = UIColor.systemGray4.cgColor //cgColor for core graphics
         
-        textColor = .label //black in light mode and white in dark mode
-        tintColor = .label
-        textAlignment = .center
-        font = UIFont.preferredFont(forTextStyle: .title2)
-        adjustsFontSizeToFitWidth = true
-        minimumFontSize = 12
+        textColor                   = .label //black in light mode and white in dark mode
+        tintColor                   = .label
+        textAlignment               = .center
+        font                        = UIFont.preferredFont(forTextStyle: .title2)
+        adjustsFontSizeToFitWidth   = true
+        minimumFontSize             = 12
         
-        backgroundColor = .tertiarySystemBackground
-        autocorrectionType = .no
-        
-        placeholder = "Введите имя пользователя"
+        backgroundColor             = .tertiarySystemBackground
+        autocorrectionType          = .no
+        returnKeyType               = .go
+        placeholder                 = "Введите имя пользователя"
     }
 }
