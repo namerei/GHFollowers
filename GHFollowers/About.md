@@ -17,3 +17,5 @@
 8)Добавили NetworkManager и возможность принимать данные с айпи
 
 9)Работаем с CollectionView в FollowersListVC
+
+10)Заполняем collectionView фоловерами
