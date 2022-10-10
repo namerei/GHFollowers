@@ -67,7 +67,7 @@ class FollowersListVC: UIViewController {
                 self.updateData()
                 
             case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "TEst", message: error.rawValue, buttonTitle: "OK")
+                self.presentGFAlertOnMainThread(title: "Test", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }
@@ -81,11 +81,17 @@ class FollowersListVC: UIViewController {
     }
     
     func updateData() {
-        print(followers)
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
-        DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
+        DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true)
+            self.collectionView.reloadData()
+        }
+//        applySnapshot()
     }
 }
 
+//2022-10-09 10:01:27.112864+0300 GHFollowers[3980:95902] [boringssl] boringssl_metrics_log_metric_block_invoke(151) Failed to log metrics
+
+//2022-10-09 10:02:22.957071+0300 GHFollowers[1747:7910368] [connection] nw_endpoint_handler_set_adaptive_read_handler [C1.1 140.82.121.6:443 ready channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] unregister notification for read_timeout failed
+//2022-10-09 10:02:22.957479+0300 GHFollowers[1747:7910368] [connection] nw_endpoint_handler_set_adaptive_write_handler [C1.1 140.82.121.6:443 ready channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] unregister notification for write_timeout failed

@@ -34,6 +34,7 @@ class GFTextField: UITextField {
         
         backgroundColor             = .tertiarySystemBackground
         autocorrectionType          = .no
+        keyboardType                = .asciiCapable
         returnKeyType               = .go
         placeholder                 = "Введите имя пользователя"
     }
