@@ -19,3 +19,9 @@
 9)Работаем с CollectionView в FollowersListVC
 
 10)Заполняем collectionView фоловерами
+
+11)Скачиваем аватарки пользователей
+
+12)Загружаем аватарки в кеш
+
+13)Pagination on
