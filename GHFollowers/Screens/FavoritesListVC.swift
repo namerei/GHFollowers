@@ -2,7 +2,7 @@
 //  FavoritesListVC.swift
 //  GHFollowers
 //
-//  Created by Nikita Evdokimov on 05.10.22.
+//  Created by Nikita Evdokimov on 10.10.22.
 //
 
 import UIKit
