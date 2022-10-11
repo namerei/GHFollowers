@@ -24,6 +24,7 @@ class FollowersListVC: UIViewController {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
+        configureSearchController()
         getFollowers(username: username, page: page)
         configureDataSource()
     }
@@ -41,9 +42,16 @@ class FollowersListVC: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate         = self
+        collectionView.backgroundColor  = .systemBackground
         collectionView.register(FollowersCell.self, forCellWithReuseIdentifier: FollowersCell.reuseID)
+    }
+    
+    func configureSearchController() {
+        let searchController                    = UISearchController()
+        searchController.searchResultsUpdater   = self
+        searchController.searchBar.placeholder  = "Поиск"
+        navigationItem.searchController         = searchController
     }
     
     func getFollowers(username: String, page: Int) {
@@ -56,7 +64,6 @@ class FollowersListVC: UIViewController {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers.append(contentsOf: followers)
-                self.followers.removeAll()
                 
                 if self.followers.isEmpty {
                     let message = "У этого пользователя пока нет подписчиков 👨🏼‍💻"
@@ -103,5 +110,12 @@ extension FollowersListVC: UICollectionViewDelegate {
             page += 1
             getFollowers(username: username, page: page)
         }
+    }
+}
+
+//MARK: - UISearchResultUpdating
+extension FollowersListVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }
