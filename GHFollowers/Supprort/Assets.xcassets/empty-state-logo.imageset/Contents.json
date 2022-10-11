@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Mask group.png",
+      "filename" : "gray.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "gray.png",
+      "filename" : "Mask group.png",
       "idiom" : "universal"
     }
   ],
