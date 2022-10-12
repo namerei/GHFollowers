@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol UserInfoVCDelegate: AnyObject {
-    func didTapGitHubProfile()
-    func didTapGetFollowers()
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
 }
 
 class UserInfoVC: UIViewController {
@@ -106,11 +107,16 @@ class UserInfoVC: UIViewController {
 
 extension UserInfoVC: UserInfoVCDelegate {
     
-    func didTapGitHubProfile() {
-        print("My button tapped!")
+    func didTapGitHubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else { presentGFAlertOnMainThread(title: "Неправильная ссылка", message: "Эта ссылка не работает", buttonTitle: "ok")
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
     
-    func didTapGetFollowers() {
+    func didTapGetFollowers(for user: User) {
         //dissmissVC
         //tell follower list screen the new user
     }
