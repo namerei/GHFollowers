@@ -16,6 +16,8 @@
 		FA60CE7228F5F4F0003A47D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60CE7128F5F4F0003A47D5 /* Constants.swift */; };
 		FA60CE7428F6CCD9003A47D5 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60CE7328F6CCD9003A47D5 /* GFItemInfoView.swift */; };
 		FA60CE7628F6D27D003A47D5 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60CE7528F6D27D003A47D5 /* GFItemInfoVC.swift */; };
+		FA60CE7828F6D5BE003A47D5 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60CE7728F6D5BE003A47D5 /* GFRepoItemVC.swift */; };
+		FA60CE7A28F6D8FF003A47D5 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60CE7928F6D8FE003A47D5 /* GFFollowerItemVC.swift */; };
 		FA76975C28F19F6F006B2CFD /* FollowersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76975B28F19F6F006B2CFD /* FollowersCell.swift */; };
 		FA76975E28F19FF6006B2CFD /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76975D28F19FF6006B2CFD /* GFAvatarImageView.swift */; };
 		FA8E7EF028ED453000313D02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E7EEF28ED453000313D02 /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 		FA60CE7128F5F4F0003A47D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA60CE7328F6CCD9003A47D5 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		FA60CE7528F6D27D003A47D5 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
+		FA60CE7728F6D5BE003A47D5 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
+		FA60CE7928F6D8FE003A47D5 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		FA76975B28F19F6F006B2CFD /* FollowersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCell.swift; sourceTree = "<group>"; };
 		FA76975D28F19FF6006B2CFD /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		FA8E7EEC28ED453000313D02 /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,9 +118,9 @@
 		FA60CE6728F5A5C3003A47D5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA60CE7B28F6D976003A47D5 /* ItemInfoVC's */,
 				FA8E7F1228EEF7FD00313D02 /* GFAlertVC.swift */,
 				FA60CE6D28F5EA25003A47D5 /* GFUserInfoHeaderVC.swift */,
-				FA60CE7528F6D27D003A47D5 /* GFItemInfoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +133,16 @@
 				FA60CE6F28F5EBEC003A47D5 /* GFSecondaryTitleLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		FA60CE7B28F6D976003A47D5 /* ItemInfoVC's */ = {
+			isa = PBXGroup;
+			children = (
+				FA60CE7528F6D27D003A47D5 /* GFItemInfoVC.swift */,
+				FA60CE7728F6D5BE003A47D5 /* GFRepoItemVC.swift */,
+				FA60CE7928F6D8FE003A47D5 /* GFFollowerItemVC.swift */,
+			);
+			path = "ItemInfoVC's";
 			sourceTree = "<group>";
 		};
 		FA76975A28F19F4C006B2CFD /* Cells */ = {
@@ -321,6 +335,7 @@
 				FA76975E28F19FF6006B2CFD /* GFAvatarImageView.swift in Sources */,
 				FA8E7F0828EDDD7400313D02 /* GFButton.swift in Sources */,
 				FA8E7F1328EEF7FD00313D02 /* GFAlertVC.swift in Sources */,
+				FA60CE7A28F6D8FF003A47D5 /* GFFollowerItemVC.swift in Sources */,
 				FA60CE7428F6CCD9003A47D5 /* GFItemInfoView.swift in Sources */,
 				FA8E7F2428F0630300313D02 /* GFError.swift in Sources */,
 				FA8E7F1128EEF4C400313D02 /* GFBodyLabel.swift in Sources */,
@@ -334,6 +349,7 @@
 				FA8E7F0428ED972800313D02 /* SearchVC.swift in Sources */,
 				FA8E7EF028ED453000313D02 /* AppDelegate.swift in Sources */,
 				FA8E7EF228ED453000313D02 /* SceneDelegate.swift in Sources */,
+				FA60CE7828F6D5BE003A47D5 /* GFRepoItemVC.swift in Sources */,
 				FA60CE6C28F5BA3A003A47D5 /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
