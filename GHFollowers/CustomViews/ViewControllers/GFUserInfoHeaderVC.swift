@@ -44,7 +44,6 @@ class GFUserInfoHeaderVC: UIViewController {
         
         locationImageView.image     = UIImage(systemName: SFSymbols.location)
         locationImageView.tintColor = .secondaryLabel
-        
     }
     
     func addSubviews() {
