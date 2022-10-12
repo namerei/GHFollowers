@@ -37,7 +37,7 @@ class GFUserInfoHeaderVC: UIViewController {
     func configureUIElements() {
         avatarImageView.downloadImage(from: user.avatarUrl)
         usernameLabel.text          = user.login
-        nameLabel.text              = user.name ?? ""
+        nameLabel.text              = user.name ?? "No name"
         locationLabel.text          = user.location ?? "Planet Earth"
         bioLabel.text               = user.bio ?? "No bio available"
         bioLabel.numberOfLines      = 3

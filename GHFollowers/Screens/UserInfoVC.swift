@@ -105,6 +105,7 @@ class UserInfoVC: UIViewController {
     }
 }
 
+//MARK: - UserInfoVCDelegate
 extension UserInfoVC: UserInfoVCDelegate {
     
     func didTapGitHubProfile(for user: User) {
