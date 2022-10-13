@@ -17,15 +17,18 @@ class FavoriteCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func set(favorite: Follower) {
         configure()
         usernameLabel.text = favorite.login
         avatarImageView.downloadImage(from: favorite.avatarUrl)
     }
+    
     
     private func configure() {
         addSubview(avatarImageView)
