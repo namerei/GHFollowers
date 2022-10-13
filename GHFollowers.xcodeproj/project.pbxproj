@@ -41,6 +41,7 @@
 		FA8E7F2428F0630300313D02 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E7F2328F0630300313D02 /* GFError.swift */; };
 		FA92ECC228F8670A00B5140A /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92ECC128F8670A00B5140A /* GFTabBarController.swift */; };
 		FA92ECC428F8740300B5140A /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92ECC328F8740300B5140A /* GFAlertContainerView.swift */; };
+		FA92ECC628F888F700B5140A /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA92ECC528F888F700B5140A /* GFDataLoadingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		FA8E7F2328F0630300313D02 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		FA92ECC128F8670A00B5140A /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		FA92ECC328F8740300B5140A /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
+		FA92ECC528F888F700B5140A /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				FA60CE7B28F6D976003A47D5 /* ItemInfoVC's */,
 				FA8E7F1228EEF7FD00313D02 /* GFAlertVC.swift */,
 				FA60CE6D28F5EA25003A47D5 /* GFUserInfoHeaderVC.swift */,
+				FA92ECC528F888F700B5140A /* GFDataLoadingVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				FA60CE7F28F6E069003A47D5 /* String+Ext.swift in Sources */,
 				FA8E7F0C28EEC43900313D02 /* FollowersListVC.swift in Sources */,
 				FA8E7F1528EF129500313D02 /* UIViewController+Ext .swift in Sources */,
+				FA92ECC628F888F700B5140A /* GFDataLoadingVC.swift in Sources */,
 				FA60CE6228F474FA003A47D5 /* UIHelper.swift in Sources */,
 				FA60CE7628F6D27D003A47D5 /* GFItemInfoVC.swift in Sources */,
 				FA60CE7228F5F4F0003A47D5 /* Constants.swift in Sources */,

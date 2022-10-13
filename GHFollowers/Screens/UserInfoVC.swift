@@ -12,7 +12,7 @@ protocol UserInfoVCDelegate: AnyObject {
     func didTapGetFollowers(for user: User)
 }
 
-class UserInfoVC: UIViewController {
+class UserInfoVC: GFDataLoadingVC {
     
     let headerView  = UIView()
     let itemViewOne = UIView()
@@ -30,11 +30,13 @@ class UserInfoVC: UIViewController {
         getUserInfo()
     }
     
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
     }
+    
     
     func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
@@ -50,6 +52,7 @@ class UserInfoVC: UIViewController {
         }
     }
     
+    
     func configureUIElements(with user: User) {
         let repoItemVC          = GFRepoItemVC(user: user)
         repoItemVC.delegate     = self
@@ -62,6 +65,7 @@ class UserInfoVC: UIViewController {
         self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.dateLabel.text  = "На github с \(user.createdAt.convertToMonthYearFormat().capitalized)"
     }
+    
     
     func layoutUI() {
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
@@ -93,12 +97,14 @@ class UserInfoVC: UIViewController {
         ])
     }
     
+    
     func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
+    
     
     @objc func dismissVC() {
         dismiss(animated: true)
@@ -116,6 +122,7 @@ extension UserInfoVC: UserInfoVCDelegate {
         presentSafariVC(with: url)
         
     }
+    
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
