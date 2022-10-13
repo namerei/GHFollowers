@@ -25,7 +25,7 @@ class FavoritesListVC: GFDataLoadingVC {
     
     func configureViewController() {
         view.backgroundColor    = .systemBackground
-        title                   = "Favorites"
+        title                   = "Избранное"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
