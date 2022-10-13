@@ -37,6 +37,8 @@ class GFEmptyStateView: UIView {
         logoImageView.image         = UIImage(named: "empty-state-logo")
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        self.bringSubviewToFront(messageLabel)
+        
         NSLayoutConstraint.activate([
             messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),

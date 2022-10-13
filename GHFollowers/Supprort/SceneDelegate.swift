@@ -17,41 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
-        window?.rootViewController = createTabBar()
+        window?.rootViewController = GFTabBarController()
         window?.makeKeyAndVisible()
         
         configureNavigationBar()
     }
 
-    private func createSearchNC() -> UINavigationController {
-        let searchVC = SearchVC()
-        searchVC.title = "Поиск"
-        
-        //tag - index of VC in array of VCs in tapbar
-        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        return UINavigationController(rootViewController: searchVC)
-    }
     
-    private func createFavoritesNC() -> UINavigationController {
-        let favoritesVC = FavoritesListVC()
-        
-        favoritesVC.title = "Закладки"
-        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        
-        return UINavigationController(rootViewController: favoritesVC)
-    }
-    
-    private func createTabBar() -> UITabBarController {
-        let tabbar = UITabBarController()
-        
-        if #available(iOS 15.0, *) {
-            tabbar.tabBar.scrollEdgeAppearance = tabbar.tabBar.standardAppearance
-        }
-        
-        UITabBar.appearance().tintColor = .systemGreen
-        tabbar.viewControllers = [createSearchNC(), createFavoritesNC()]
-        return tabbar
-    }
     
     func configureNavigationBar() {
         UINavigationBar.appearance().tintColor = .systemGreen

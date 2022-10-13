@@ -76,9 +76,7 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite    = favorites[indexPath.row]
-        let destVC      = FollowersListVC()
-        destVC.username = favorite.login
-        destVC.title    = favorite.login
+        let destVC      = FollowersListVC(username: favorite.login)
         
         navigationController?.pushViewController(destVC, animated: true)
     }
@@ -91,7 +89,7 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
         tableView.deleteRows(at: [indexPath], with: .left)
         
         PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
-            guard let self = self else { return }
+            guard let self  = self else { return }
             guard let error = error else { return }
             self.presentGFAlertOnMainThread(title: "Не возможно удалить", message: error.rawValue, buttonTitle: "ok")
         }
