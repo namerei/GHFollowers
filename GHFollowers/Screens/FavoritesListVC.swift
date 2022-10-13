@@ -12,7 +12,6 @@ class FavoritesListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //system colors adopt to dark mode
         view.backgroundColor = .systemBlue
         
         PersistenceManager.retrieveFavorites { result in
