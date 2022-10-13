@@ -16,11 +16,12 @@ class FollowersListVC: GFDataLoadingVC {
     enum Section { case main }
     
     var username: String!
-    var followers           = [Follower]()
-    var filteredFollowers   = [Follower]()
-    var page                = 1
-    var hasMoreFollowers    = true
-    var isSearching         = false
+    var followers               = [Follower]()
+    var filteredFollowers       = [Follower]()
+    var page                    = 1
+    var hasMoreFollowers        = true
+    var isSearching             = false
+    var isLoadingMoreFollowers  = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -77,6 +78,8 @@ class FollowersListVC: GFDataLoadingVC {
     
     func getFollowers(username: String, page: Int) {
         showLoadingView()
+        isLoadingMoreFollowers = true
+        
         NetworkManager.shared.getFolowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
             self.dissmissLoadingView()
@@ -99,6 +102,8 @@ class FollowersListVC: GFDataLoadingVC {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Что то пошло не так", message: error.rawValue, buttonTitle: "OK")
             }
+            
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -154,7 +159,7 @@ extension FollowersListVC: UICollectionViewDelegate {
         let heightOfDisplay = scrollView.frame.size.height
         
         if offsetY > contentHeight - heightOfDisplay {
-            guard hasMoreFollowers else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             getFollowers(username: username, page: page)
         }
@@ -202,6 +207,7 @@ extension FollowersListVC: FollowerListVCDelegate {
         page            = 1
         followers.removeAll()
         filteredFollowers.removeAll()
+//        collectionView.setContentOffset(.zero, animated: true)
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(username: username, page: page)
     }
