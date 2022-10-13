@@ -70,7 +70,6 @@ class FollowersListVC: GFDataLoadingVC {
     func configureSearchController() {
         let searchController                    = UISearchController()
         searchController.searchResultsUpdater   = self
-        searchController.searchBar.delegate     = self
         searchController.searchBar.placeholder  = "Поиск"
         searchController.obscuresBackgroundDuringPresentation = false //shade on view down searchBar
         navigationItem.searchController                       = searchController
@@ -174,10 +173,16 @@ extension FollowersListVC: UICollectionViewDelegate {
 }
 
 //MARK: - UISearchResultUpdating, UISearchBarDelegate
-extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowersListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+        }
+        
         isSearching         = true
         filteredFollowers   = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
