@@ -9,9 +9,9 @@ import UIKit
 
 class FavoriteCell: UITableViewCell {
 
-    static let reuseID   = "FavoriteCell"
-    let avatarImageView = GFAvatarImageView(frame: .zero)
-    let usernameLabel   = GFTitleLabel(textAlignment: .left, fontSize: 26)
+    static let reuseID      = "FavoriteCell"
+    let avatarImageView     = GFAvatarImageView(frame: .zero)
+    let usernameLabel       = GFTitleLabel(textAlignment: .left, fontSize: 26)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,6 +22,7 @@ class FavoriteCell: UITableViewCell {
     }
     
     func set(favorite: Follower) {
+        configure()
         usernameLabel.text = favorite.login
         avatarImageView.downloadImage(from: favorite.avatarUrl)
     }
@@ -43,7 +44,6 @@ class FavoriteCell: UITableViewCell {
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
             usernameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 40)
-            
         ])
     }
 }
