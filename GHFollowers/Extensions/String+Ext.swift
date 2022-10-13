@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - we dont need that extension but in education's purposes we stand it
 extension String {
     func convertToDate() -> Date? {
         let dateFormatter           = DateFormatter()
