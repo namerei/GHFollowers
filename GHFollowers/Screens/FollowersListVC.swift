@@ -72,7 +72,7 @@ class FollowersListVC: GFDataLoadingVC {
         searchController.searchResultsUpdater   = self
         searchController.searchBar.delegate     = self
         searchController.searchBar.placeholder  = "Поиск"
-        searchController.obscuresBackgroundDuringPresentation = false //shade on view
+        searchController.obscuresBackgroundDuringPresentation = false //shade on view down searchBar
         navigationItem.searchController                       = searchController
     }
     
