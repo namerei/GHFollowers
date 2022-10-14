@@ -8,8 +8,7 @@
 import UIKit
 
 protocol UserInfoVCDelegate: AnyObject {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: GFDataLoadingVC {
@@ -21,7 +20,7 @@ class UserInfoVC: GFDataLoadingVC {
     var itemViews   = [UIView]()
     
     var username: String!
-    weak var delegate: FollowerListVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +53,9 @@ class UserInfoVC: GFDataLoadingVC {
     
     
     func configureUIElements(with user: User) {
-        let repoItemVC          = GFRepoItemVC(user: user)
-        repoItemVC.delegate     = self
-        
-        let followerItemVC      = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-        
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-        self.add(childVC: repoItemVC, to: self.itemViewOne)
-        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GFFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.dateLabel.text  = "На github с \(user.createdAt.convertToMonthYearFormat().capitalized)"
     }
     
@@ -111,9 +104,9 @@ class UserInfoVC: GFDataLoadingVC {
     }
 }
 
-//MARK: - UserInfoVCDelegate
-extension UserInfoVC: UserInfoVCDelegate {
-    
+
+//MARK: - GFRepoItemVCDelegate, GFFollowerItemVCDelegate
+extension UserInfoVC: GFRepoItemVCDelegate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else { presentGFAlertOnMainThread(title: "Неправильная ссылка", message: "Эта ссылка не работает", buttonTitle: "ok")
             return
@@ -122,8 +115,9 @@ extension UserInfoVC: UserInfoVCDelegate {
         presentSafariVC(with: url)
         
     }
-    
-    
+}
+
+extension UserInfoVC: GFFollowerItemVCDelegate {
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
             presentGFAlertOnMainThread(title: "Нет подписчиков", message: "У этого пользователя не т подписичков ", buttonTitle: "Как печально")
