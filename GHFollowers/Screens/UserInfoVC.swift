@@ -26,6 +26,7 @@ class UserInfoVC: GFDataLoadingVC {
     var username: String!
     weak var delegate: UserInfoVCDelegate!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -83,6 +84,7 @@ class UserInfoVC: GFDataLoadingVC {
         
         let padding: CGFloat        = 20
         let itemHeight: CGFloat     = 140
+        
         for itemView in itemViews {
             contentView.addSubview(itemView)
             itemView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,6 +134,7 @@ extension UserInfoVC: GFRepoItemVCDelegate {
         presentSafariVC(with: url)
     }
 }
+
 
 extension UserInfoVC: GFFollowerItemVCDelegate {
     func didTapGetFollowers(for user: User) {
