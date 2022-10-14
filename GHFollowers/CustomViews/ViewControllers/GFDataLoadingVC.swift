@@ -36,6 +36,7 @@ class GFDataLoadingVC: UIViewController {
     
     func dissmissLoadingView() {
         DispatchQueue.main.async {
+            guard self.containerView != nil else { return }
             self.containerView.removeFromSuperview()
             self.containerView = nil
         }
