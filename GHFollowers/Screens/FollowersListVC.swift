@@ -23,17 +23,19 @@ class FollowersListVC: GFDataLoadingVC {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
+    
     init(username: String) {
         super.init(nibName: nil, bundle: nil)
         self.username   = username
         title           = username
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //clean viewDidLoad - just list of commands
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -43,11 +45,13 @@ class FollowersListVC: GFDataLoadingVC {
         configureDataSource()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -57,6 +61,7 @@ class FollowersListVC: GFDataLoadingVC {
 
     }
     
+    
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
@@ -65,6 +70,7 @@ class FollowersListVC: GFDataLoadingVC {
         collectionView.register(FollowersCell.self, forCellWithReuseIdentifier: FollowersCell.reuseID)
     }
     
+    
     func configureSearchController() {
         let searchController                    = UISearchController()
         searchController.searchResultsUpdater   = self
@@ -72,6 +78,7 @@ class FollowersListVC: GFDataLoadingVC {
         searchController.obscuresBackgroundDuringPresentation = false //shade on view down searchBar
         navigationItem.searchController                       = searchController
     }
+    
     
     func getFollowers(username: String, page: Int) {
         showLoadingView()
@@ -83,19 +90,7 @@ class FollowersListVC: GFDataLoadingVC {
             
             switch result {
             case .success(let followers):
-                
-                if followers.count < 100 { self.hasMoreFollowers = false }
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty {
-                    let message = "У этого пользователя пока нет подписчиков 👨🏼‍💻"
-                    DispatchQueue.main.async {
-                        self.showEmptyStateView(with: message, in: self.view)
-                        return
-                    }
-                }
-                
-                self.updateData(on: self.followers)
+                self.updateUI(with: followers)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Что то пошло не так", message: error.rawValue, buttonTitle: "OK")
@@ -105,6 +100,21 @@ class FollowersListVC: GFDataLoadingVC {
         }
     }
     
+    
+    func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "У этого пользователя пока нет подписчиков 👨🏼‍💻"
+            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        
+        self.updateData(on: self.followers)
+    }
+    
+    
     func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCell.reuseID, for: indexPath) as! FollowersCell
@@ -113,12 +123,14 @@ class FollowersListVC: GFDataLoadingVC {
         })
     }
     
+    
     func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
+    
     
     @objc func addButtonTapped() {
         showLoadingView()
@@ -148,6 +160,7 @@ class FollowersListVC: GFDataLoadingVC {
     }
 }
 
+
 //MARK: - UICollectionViewDelegate
 extension FollowersListVC: UICollectionViewDelegate {
     
@@ -175,6 +188,7 @@ extension FollowersListVC: UICollectionViewDelegate {
     }
 }
 
+
 //MARK: - UISearchResultUpdating, UISearchBarDelegate
 extension FollowersListVC: UISearchResultsUpdating {
     
@@ -197,6 +211,7 @@ extension FollowersListVC: UISearchResultsUpdating {
     }
 }
 
+
 //MARK: - FollowerListVCDelegate
 extension FollowersListVC: UserInfoVCDelegate {
     func didRequestFollowers(for username: String) {
@@ -205,7 +220,6 @@ extension FollowersListVC: UserInfoVCDelegate {
         page            = 1
         followers.removeAll()
         filteredFollowers.removeAll()
-//        collectionView.setContentOffset(.zero, animated: true)
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(username: username, page: page)
     }

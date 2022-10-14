@@ -15,6 +15,7 @@ class SearchVC: UIViewController {
 
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -25,16 +26,19 @@ class SearchVC: UIViewController {
         createDismissKeyboardTapGesture()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    
     func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
+    
     
     @objc func pushFollowerListVC() {
         
@@ -49,6 +53,7 @@ class SearchVC: UIViewController {
         navigationController?.pushViewController(folowerListVC, animated: true)
     }
     
+    
     //MARK: - UI configurations
     func configureLogoImageView() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +67,7 @@ class SearchVC: UIViewController {
         ])
     }
     
+    
     func configureTextField() {
         usernameTextField.delegate = self
         
@@ -72,6 +78,7 @@ class SearchVC: UIViewController {
             usernameTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
     
     func configureCallToActionButton() {
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
@@ -84,6 +91,7 @@ class SearchVC: UIViewController {
         ])
     }
 }
+
 
 //MARK: - UITextFieldDelegate
 extension SearchVC: UITextFieldDelegate {

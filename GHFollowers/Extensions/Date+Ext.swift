@@ -14,7 +14,6 @@ extension Date {
         dateFormatter.dateFormat = "MMMM yyyy"
         dateFormatter.locale     = Locale(identifier: "ru")
         dateFormatter.timeZone   = .current
-        
         return dateFormatter.string(from: self).capitalized
     }
 }

@@ -18,17 +18,17 @@ class GFTabBarController: UITabBarController {
         }
     }
     
+    
     private func createSearchNC() -> UINavigationController {
         let searchVC = SearchVC()
-        
-        //tag - index of VC in array of VCs in tapbar
         searchVC.tabBarItem = UITabBarItem(title: "Поиск", image: SFSymbols.search, tag: 0)
+        
         return UINavigationController(rootViewController: searchVC)
     }
     
+    
     private func createFavoritesNC() -> UINavigationController {
         let favoritesVC = FavoritesListVC()
-        
         favoritesVC.tabBarItem = UITabBarItem(title: "Избранное", image: SFSymbols.favorites, tag: 1)
         
         return UINavigationController(rootViewController: favoritesVC)

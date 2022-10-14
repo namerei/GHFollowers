@@ -11,6 +11,7 @@ protocol UserInfoVCDelegate: AnyObject {
     func didRequestFollowers(for username: String)
 }
 
+
 class UserInfoVC: GFDataLoadingVC {
     
     let scrollView  = UIScrollView()
@@ -128,9 +129,7 @@ extension UserInfoVC: GFRepoItemVCDelegate {
         guard let url = URL(string: user.htmlUrl) else { presentGFAlertOnMainThread(title: "Неправильная ссылка", message: "Эта ссылка не работает", buttonTitle: "ok")
             return
         }
-        
         presentSafariVC(with: url)
-        
     }
 }
 

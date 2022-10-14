@@ -10,7 +10,7 @@ import Foundation
 struct User: Codable {
     let login: String
     let avatarUrl: String
-    var name: String? //person's real name
+    var name: String?
     var location: String?
     var bio: String?
     var publicRepos: Int
