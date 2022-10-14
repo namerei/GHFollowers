@@ -11,7 +11,7 @@ class SearchVC: UIViewController {
     
     let logoImageView       = UIImageView()
     let usernameTextField   = GFTextField()
-    let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Показать подписчиков")
+    let callToActionButton  = GFGradientButton(title: "Показать подписчиков")
 
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
@@ -87,6 +87,7 @@ class SearchVC: UIViewController {
     }
 }
 
+//MARK: - UITextFieldDelegate
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pushFollowerListVC()
