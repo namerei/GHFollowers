@@ -35,3 +35,6 @@
 - Пользователи хранятся с помощью ``UserDefaults``
 - Кастомные алерты
 - Приложение на русском 
+
+### Источник:
+![Sean Allen - IOS Dev Job Interview](https://seanallen.teachable.com/p/take-home)
