@@ -37,4 +37,4 @@
 - Приложение на русском 
 
 ### Источник:
-![Sean Allen - IOS Dev Job Interview](https://seanallen.teachable.com/p/take-home)
+[Sean Allen - IOS Dev Job Interview](https://seanallen.teachable.com/p/take-home)
