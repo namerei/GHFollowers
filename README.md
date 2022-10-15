@@ -1,6 +1,6 @@
 # GHFollowers
 
-[](https://i.ibb.co/9gpyGQT/1.png)
+![](https://i.ibb.co/9gpyGQT/1.png)
 https://i.ibb.co/kgMTS2M/2.png
 https://i.ibb.co/KbwgG4n/3.png
 https://i.ibb.co/tp2knqj/4.png
