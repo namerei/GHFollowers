@@ -36,5 +36,8 @@
 - Кастомные алерты
 - Приложение на русском 
 
+### От себя:
+- Очень полезный проект который помог мне улучшить знания по верстке, работе с UI-элементами и сетью, а также я больше узнал о структуре проекта и написании чистого, читаемого кода.
+
 ### Источник:
-[Sean Allen - IOS Dev Job Interview](https://seanallen.teachable.com/p/take-home)
+[Sean Allen - IOS Dev Job Interview Home Project](https://seanallen.teachable.com/p/take-home)
