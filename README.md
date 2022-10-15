@@ -1,3 +1,3 @@
 # GHFollowers
 
-![](https://i.ibb.co/VTgcBb4/Frame-12.png)
+![](https://i.ibb.co/gg0yRk8/Frame-13.png)
