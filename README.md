@@ -1,4 +1,4 @@
-# GFFollowers
+# GHFollowers
 ### Приложение на основе github API для отображения подписчиков пользователя, с возможностью добавления в избранное пользователей.
 
 ![](https://i.ibb.co/bsZphHL/white-mode.png)
