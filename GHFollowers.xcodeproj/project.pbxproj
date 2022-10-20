@@ -200,7 +200,7 @@
 				FA8E7F1728EF1C6A00313D02 /* CustomViews */,
 				FA8E7F1828EF1CBA00313D02 /* Extensions */,
 				FA8E7F1628EF1C1A00313D02 /* Screens */,
-				FA8E7F1928EF1D2300313D02 /* Supprort */,
+				FA8E7F1928EF1D2300313D02 /* Support */,
 				FA8E7EFD28ED453200313D02 /* Info.plist */,
 				FA8E7F0D28EEC6F200313D02 /* About.md */,
 			);
@@ -244,14 +244,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FA8E7F1928EF1D2300313D02 /* Supprort */ = {
+		FA8E7F1928EF1D2300313D02 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				FA8E7EEF28ED453000313D02 /* AppDelegate.swift */,
 				FA8E7EF128ED453000313D02 /* SceneDelegate.swift */,
 				FA8E7EF828ED453200313D02 /* Assets.xcassets */,
 			);
-			path = Supprort;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		FA8E7F1A28F022DE00313D02 /* Model */ = {
