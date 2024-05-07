@@ -1,9 +1,11 @@
 # GHFollowers
 ### Приложение на основе github API для отображения подписчиков пользователя, с возможностью добавления в избранное пользователей.
 
-![](https://i.ibb.co/bsZphHL/white-mode.png)
+<!--![](https://i.ibb.co/bsZphHL/white-mode.png)
 
-![](https://i.ibb.co/4mB5nLZ/dark3.jpg)
+![](https://i.ibb.co/4mB5nLZ/dark3.jpg)-->
+
+![](https://i.ibb.co/zx6c5yp/Screenshot-2024-05-07-at-19-30-58.png)
 
 ### Состоит из 4х экранов:
 ### Поиск пользователя(SearchVC):
